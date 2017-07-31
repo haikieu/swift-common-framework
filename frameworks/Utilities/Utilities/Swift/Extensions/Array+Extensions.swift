@@ -12,7 +12,8 @@ public extension Array where Element: AnyObject{
     
     public mutating func remove(object: AnyObject?) -> Int { guard let object = object else {   return -1 }
         
-        if let index = index(ofObject: object) as? Int, index > 0 {
+        let index = self.index(of: object)
+        if index > 0 {
             remove(at: index)
             return index
         }
@@ -21,11 +22,11 @@ public extension Array where Element: AnyObject{
     
     public func contains(object : AnyObject?) -> Bool { guard let object = object else {   return false }
         
-        return index(ofObject: object) > -1
+        return index(of: object) > -1
     }
     
     
-    public func index(ofObject object: AnyObject?) -> Int { guard let object = object else {   return -1}
+    public func index(of object: AnyObject?) -> Int { guard let object = object else {   return -1}
     
         if let index = index(where: { $0 === object }) {
             return index

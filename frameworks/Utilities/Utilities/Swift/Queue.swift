@@ -24,11 +24,11 @@ public class Queue<Element> : NSObject {
         return objects.last
     }
     
-    public func next(OfObject object: Element?) -> Element?{ guard let object = object else { return nil}
+    public func next(of object: Element?) -> Element?{ guard let _ = object else { return nil}
         notImplementedYet()
     }
     
-    public func previous(OfObject object : Element?) -> Element?{ guard let object = object else { return nil}
+    public func previous(of object : Element?) -> Element?{ guard let _ = object else { return nil}
         notImplementedYet()
     }
 }

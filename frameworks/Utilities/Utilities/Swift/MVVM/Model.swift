@@ -31,7 +31,7 @@ open class Model<VM,D> : NSObject {
     }
     
     open func delete(record : D) {
-        let a = [record]
+//        let a = [record]
         notImplementedYet()
     }
     

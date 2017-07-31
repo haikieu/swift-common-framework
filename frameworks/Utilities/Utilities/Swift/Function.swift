@@ -9,6 +9,6 @@
 import Foundation
 
 func notImplementedYet() -> Never {
-    return fatalError("This hasn't been implemented yet")
+    fatalError("This hasn't been implemented yet")
 }
 

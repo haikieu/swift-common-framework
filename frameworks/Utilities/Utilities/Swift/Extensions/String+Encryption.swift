@@ -41,7 +41,7 @@ public extension String {
     
     fileprivate func decrypt(string: String, prefix : String = prefix) -> String {
         notImplementedYet()
-        return string.trimmingCharacters(in: CharacterSet.init(charactersIn: prefix))
+//        return string.trimmingCharacters(in: CharacterSet.init(charactersIn: prefix))
     }
     
 }

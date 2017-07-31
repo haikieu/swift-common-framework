@@ -22,7 +22,7 @@ internal class GlobalGestureHandler {
         let focusability = view as? Focusable
         
         let referenceView = UIApplication.shared.keyWindow?.rootViewController?.view
-        let velocity = gesture.velocity(in: referenceView)
+        _ = gesture.velocity(in: referenceView)//get velocity
         let translation = gesture.translation(in: referenceView)
         let newCenter = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
         
