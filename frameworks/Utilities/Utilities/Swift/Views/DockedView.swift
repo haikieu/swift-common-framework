@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-public enum CornerPosition {
+public enum DockedPosition {
     case unknown, topLeft, topRight, bottomLeft, bottomRight
 }
 
 open class DockedView : UIView, Dockable, Focusable {
     
-    public var lastCornerPosition: BindingType<CornerPosition> = BindingType<CornerPosition>.init(withValue: .unknown)
+    public var lastDockedPosition: BindingType<DockedPosition> = BindingType<DockedPosition>.init(withValue: .unknown)
     
     public var originPosition: CGPoint?
     

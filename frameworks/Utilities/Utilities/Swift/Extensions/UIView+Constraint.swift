@@ -20,7 +20,7 @@ public extension UIView {
     }
     
     public func layoutFullSuperview() {
-        guard let superview = self.superview else {
+        guard self.superview != nil else {
             return //There no superview
         }
         self.translatesAutoresizingMaskIntoConstraints = false

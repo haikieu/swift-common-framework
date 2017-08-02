@@ -13,32 +13,32 @@ public protocol Dockable : Draggable {
     var topOffset : CGFloat {get set}
     var bottomOffset : CGFloat {get set}
     var margin : CGFloat {get set}
-    var lastCornerPosition : BindingType<CornerPosition> {get set}
+    var lastDockedPosition : BindingType<DockedPosition> {get set}
     
     func moveToLastCornerPos(animated: Bool)
-    func move(toCorner corner:CornerPosition, animated : Bool)
-    func move(toHidingCorner corner:CornerPosition, animated : Bool)
+    func move(toCorner corner:DockedPosition, animated : Bool)
+    func move(toHidingCorner corner:DockedPosition, animated : Bool)
 }
 
 public extension Dockable where Self : UIView {
     
     func onEndedMoving(from originPosition: CGPoint, to lastPosition: CGPoint) {
-        lastCornerPosition.value = calculateCorner(byPosition: lastPosition)
-        move(toCorner: lastCornerPosition.value!, animated: true)
+        lastDockedPosition.value = calculateCorner(byPosition: lastPosition)
+        move(toCorner: lastDockedPosition.value!, animated: true)
     }
     
     //MARK: - calculate stuffs
     
     func moveToLastCornerPos(animated: Bool = true) {
-        move(toCorner: lastCornerPosition.value!,animated : animated)
+        move(toCorner: lastDockedPosition.value!,animated : animated)
     }
     
     /// The method which helps move this view to a certain corner
-    func move(toCorner corner:CornerPosition, animated : Bool = true) {
+    func move(toCorner corner:DockedPosition, animated : Bool = true) {
         //Update last position
-        lastCornerPosition.value = corner
+        lastDockedPosition.value = corner
         
-        let point = calculatePosition(byCornerPosition: corner)
+        let point = calculatePosition(byDockedPosition: corner)
         let rect = CGRect.init(origin: point, size: bounds.size)
         UIView.animate(withDuration: animated ? duration : 0, delay: delay, options: .curveEaseIn, animations: {
             self.frame = rect
@@ -48,11 +48,11 @@ public extension Dockable where Self : UIView {
     }
     
     /// The method which helps hide this view by moving it to a specific corner
-    func move(toHidingCorner corner:CornerPosition, animated : Bool = true) {
+    func move(toHidingCorner corner:DockedPosition, animated : Bool = true) {
         //Update last position
-        lastCornerPosition.value = corner
+        lastDockedPosition.value = corner
         
-        let point = calculateHidingPosition(byCornerPosition: corner)
+        let point = calculateHidingPosition(byDockedPosition: corner)
         let rect = CGRect.init(origin: point, size: bounds.size)
         
         UIView.animate(withDuration: animated ? duration : 0, delay: delay, options: .curveEaseIn, animations: {
@@ -63,11 +63,11 @@ public extension Dockable where Self : UIView {
     }
     
     /// The method that helps calculate the position by corner
-    private func calculateCorner(byPosition position:CGPoint) -> CornerPosition {
+    private func calculateCorner(byPosition position:CGPoint) -> DockedPosition {
         
         let centerX = UIScreen.main.bounds.midX
         let centerY = UIScreen.main.bounds.midY
-        var corner = CornerPosition.unknown
+        var corner = DockedPosition.unknown
         
         if position.x < centerX {
             if position.y < centerY {
@@ -93,12 +93,12 @@ public extension Dockable where Self : UIView {
         return corner
     }
     
-    private func calculatePosition(byCornerPosition CornerPosition: CornerPosition) -> CGPoint {
+    private func calculatePosition(byDockedPosition DockedPosition: DockedPosition) -> CGPoint {
         
         var x = -1 as CGFloat
         var y = -1 as CGFloat
         
-        switch CornerPosition {
+        switch DockedPosition {
         case .topLeft:
             x = margin
             y = margin + topOffset
@@ -122,12 +122,12 @@ public extension Dockable where Self : UIView {
         return CGPoint.init(x: x, y: y)
     }
     
-    private func calculateHidingPosition(byCornerPosition CornerPosition: CornerPosition) -> CGPoint {
+    private func calculateHidingPosition(byDockedPosition DockedPosition: DockedPosition) -> CGPoint {
         
         var x = -1 as CGFloat
         var y = -1 as CGFloat
         
-        switch CornerPosition {
+        switch DockedPosition {
         case .topLeft:
             x = -width - margin
             y = margin + topOffset

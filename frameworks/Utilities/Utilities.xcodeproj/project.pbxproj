@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46BA65AC1F30DA5100B582EB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BA65AB1F30DA5100B582EB /* GradientView.swift */; };
 		C6060F981EA4922300FB4639 /* CrystalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6060F971EA4922300FB4639 /* CrystalView.swift */; };
 		C6060F9A1EA492B700FB4639 /* DragableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6060F991EA492B700FB4639 /* DragableView.swift */; };
 		C6060FB71EA49FB200FB4639 /* UIDevice+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6060FB61EA49FB200FB4639 /* UIDevice+Info.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46BA65AB1F30DA5100B582EB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = Swift/Views/GradientView.swift; sourceTree = "<group>"; };
 		C6060F971EA4922300FB4639 /* CrystalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrystalView.swift; path = Swift/CrystalView.swift; sourceTree = "<group>"; };
 		C6060F991EA492B700FB4639 /* DragableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DragableView.swift; path = Swift/DragableView.swift; sourceTree = "<group>"; };
 		C6060FB61EA49FB200FB4639 /* UIDevice+Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIDevice+Info.swift"; path = "Swift/Extensions/UIDevice+Info.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				C6060F971EA4922300FB4639 /* CrystalView.swift */,
 				C6060F991EA492B700FB4639 /* DragableView.swift */,
 				C671EA5A1F21C28D00C1232A /* DockedView.swift */,
+				46BA65AB1F30DA5100B582EB /* GradientView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				C639F0131EA3FF15005B7239 /* UIView+Constraint.swift in Sources */,
 				C671EA5F1F21D59200C1232A /* GlobalGestureHandler.swift in Sources */,
 				C6060F981EA4922300FB4639 /* CrystalView.swift in Sources */,
+				46BA65AC1F30DA5100B582EB /* GradientView.swift in Sources */,
 				C639F0471EA41A38005B7239 /* Array+Stack.swift in Sources */,
 				C6060F9A1EA492B700FB4639 /* DragableView.swift in Sources */,
 				C60E04251EA3FE0000810E04 /* UIView+Extensions.swift in Sources */,
